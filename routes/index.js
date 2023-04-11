@@ -12,6 +12,8 @@ router.get("/",function(req,res){
 router.get("/signup",userController.signup)
 router.post("/createUser",userController.createUser)
 router.post("/signup",userController.signup)
+router.post("/signin",userController.signin)
+
 
 
 

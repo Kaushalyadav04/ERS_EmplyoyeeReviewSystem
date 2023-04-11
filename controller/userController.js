@@ -36,3 +36,25 @@ module.exports.createUser=async function(req,res){
             });
         }
 }
+
+
+module.exports.signin=async function(req,res){
+    let user=await User.find({
+        email:req.body.email
+    });
+    if(user.length>0){
+        if(user[0].password!=req.body.password){
+            console.log("you have entered wrong password");
+
+            return res.render('wrongPassword');
+        }
+        console.log("successfully logged in")
+        return res.render('welcome',{
+            user:user[0]
+        })
+    }else{
+        // console.log('User not present');
+        return res.render('signin');
+    }
+
+}

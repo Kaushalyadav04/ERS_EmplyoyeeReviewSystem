@@ -58,6 +58,7 @@ const reviewSchema=new mongoose.Schema({
     },
     user:{
         type:mongoose.Schema.Types.objectId,
+        ref:"User",
         required:true
     },
 },{
