@@ -5,52 +5,41 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/welcome.css">
+
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-<div class="container">
+
   <h1>Welcome <%=user.name%> to the <%=user.role%> side</h1>
 </div>
-<div class="container">
-    <h2>Review Form</h2>
-  </div>
-<form class="container" action="/" method="post">
-    <div class="form-group">
-        <label for="exampleInputName">Full Name</label>
-        <input type="text" class="form-control" id="exampleInputName"  placeholder="Enter Full Name" name="name">
-        
-      </div>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
+<% if (user.role=="Admin"){%>
+  <div class="divdemo"}>
+  <h1>Employee List</h1>
+
+  <%for (i=0;i<allUser.length;i++){%>
+    <% if(allUser[i].role=="Employee"){%>
       
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Confirm password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="confirmPassword" name="confirmPassword">
-      </div>
-    
-    <div class="form-group">
-        <label for="Gender">Gender</label>
-        <select class="form-control" name="gender">
-            <option value="male" name="male">Male</option>
-            <option value="female" name="female">Female</option>
-            <option value="other" name="other">Other</option>
-    
-        </select>
-    </div>
-    
-    <div class="form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">I hereby accept all terms and conditions</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+      <%= allUser[i].name %> <br><br>
+
+      
+
+
+    <%}%>
+
+  <%}%>
+
+
+
+
+
+
+
+
+<%}%>
+ 
 </body>
 </html>
